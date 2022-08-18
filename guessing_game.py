@@ -63,16 +63,19 @@ def start_game():
 
         else:
           print("You got it! It took you {} tries.".format(no_of_attempts))  
-          highscore = no_of_attempts
+          
           new_game = input("Would you like to play again? [y]es/[n]o: ")
+          if no_of_attempts < highscore:
+            highscore = no_of_attempts
           if new_game.lower() == 'y':
             print("The HIGHSCORE is {}".format(highscore))
             start_game()
       except ValueError:
         print("Oh no! Please enter a number between 1-10") 
     else:
-      print("Thank you! You are a winner!")
+      print()
 
 
 # Kick off the program by calling the start_game function.
 start_game()
+print("Thank you! You are a winner!")
