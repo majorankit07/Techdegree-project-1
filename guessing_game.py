@@ -11,6 +11,15 @@ NOTE: If you strongly prefer to work locally on your own computer, you can total
 
 import random
 
+print("""
+    ---------------------
+    Welcome to the number Guessing Game!")
+    ---------------------
+    """)
+
+name = input("What is your name?  ")
+print("Hello {}! Welcome to the number guessing game!".format(name))
+
 
 
 def start_game():
@@ -32,43 +41,37 @@ def start_game():
     """
     # write your code inside this function.
 
-print("""
----------------------
-Welcome to the number Guessing Game!")
----------------------
-""")
+    random_number = random.randint(1,10)
+    guess = 0
+    no_of_attempts = 0
+    highscore = 10
 
-name = input("What is your name?  ")
-print("Hello {}! Welcome to the number guessing game!".format(name))
+    while guess != random_number:
+      try:
+        guess = int(input("Pick a number between 1 and 10: "))
+        no_of_attempts += 1
+        if guess > 10:
+          print("Invalid input! Please enter a number between 1 - 10")
+        elif guess < 1:
+          print("Invalid input! Please enter a number between 1 - 10")
+        elif guess > random_number:
+            print("It is lower!")
+        elif guess < random_number:
+            print("It is higher!")
+            continue
+         
 
-random_number = random.randint(1,10)
-guess = 0
-no_of_attempts = 0
-highscore = 10
-
-while guess != random_number:
-  guess = int(input("Pick a number between 1 and 10: "))
-  no_of_attempts += 1
-  if guess > 10:
-    print("Invalid input! Please enter a number between 1 - 10")
-  if guess < 1:
-    print("Invalid input! Please enter a number between 1 - 10")
-  elif guess > random_number:
-      print("It is lower!")
-  elif guess < random_number:
-      print("It is higher!")
-      continue
-
-
-  else:
-    print("You got it! It took you {} tries.".format(no_of_attempts))  
-    highscore = no_of_attempts
-    new_game = input("Would you like to play again? [y]es/[n]o: ")
-    if new_game.lower() == 'y':
-      print("The HIGHSCORE is {}".format(highscore))
-      start_game()
-else:
-  print("Thank you! You are a winner!")
+        else:
+          print("You got it! It took you {} tries.".format(no_of_attempts))  
+          highscore = no_of_attempts
+          new_game = input("Would you like to play again? [y]es/[n]o: ")
+          if new_game.lower() == 'y':
+            print("The HIGHSCORE is {}".format(highscore))
+            start_game()
+      except ValueError:
+        print("Oh no! Please enter a number between 1-10") 
+    else:
+      print("Thank you! You are a winner!")
 
 
 # Kick off the program by calling the start_game function.
