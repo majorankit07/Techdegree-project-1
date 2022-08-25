@@ -17,10 +17,9 @@ print("""
     ---------------------
     """)
 
+
 name = input("What is your name?  ")
 print("Hello {}! Welcome to the number guessing game!".format(name))
-
-
 
 def start_game():
     """Psuedo-code Hints
