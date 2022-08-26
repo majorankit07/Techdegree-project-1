@@ -48,8 +48,8 @@ def start_game():
     guess = 0
     no_of_attempts = 0
 
-    def start_game():
-      global highscore
+
+    global highscore
 
     while guess != random_number:
       try:
