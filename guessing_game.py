@@ -19,8 +19,7 @@ print("""
 
 highscore = 10
 
-def start_game():
-    global highscore    
+    
 
 
 name = input("What is your name?  ")
@@ -48,6 +47,9 @@ def start_game():
     random_number = random.randint(1,10)
     guess = 0
     no_of_attempts = 0
+
+    def start_game():
+      global highscore
 
     while guess != random_number:
       try:
